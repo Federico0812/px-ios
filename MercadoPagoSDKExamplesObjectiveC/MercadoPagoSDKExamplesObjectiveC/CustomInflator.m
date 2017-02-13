@@ -10,30 +10,32 @@
 #import "CustomTableViewCell.h"
 @import MercadoPagoSDK;
 
-
 @implementation CustomInflator
 
 UINib *customCellNib = nil;
+PaymentData *data;
 
--(id)initWithUINib:(UINib*)nib{
-    self = [super init];
-    if (self) {
-        customCellNib = nib;
-    }
-    return self;
+
+-(void)invokeCallback{
+
     
 }
--(void)fillCellWithCell:(MPCustomTableViewCell *)cell {
+
+
+-(void)fillCellWithCell:(UITableViewCell *)cell paymentData:(PaymentData *)paymentData{
     CustomTableViewCell *currentCell = (CustomTableViewCell *)cell;
-    currentCell.label.text = @"override";
+    currentCell.label.text = @"1562663448";
+    data = paymentData;
+    [currentCell.button addTarget:self action:@selector(invokeCallback) forControlEvents:UIControlEventTouchUpInside];
 }
+
 
 -(UINib *)getNib {
     return [UINib nibWithNibName:@"CustomTableViewCell" bundle: [NSBundle mainBundle]];
 }
 
--(CGFloat *)getHeigth {
-    return 100;
+-(CGFloat)getHeigth {
+    return (CGFloat)180;
 }
 
 

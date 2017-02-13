@@ -55,7 +55,11 @@ class ApprovedTableViewCell: UITableViewCell {
         
         lastFourDigits.text = payment.paymentMethodId == "account_money" ? "Dinero en cuenta de MercadoPago".localized : "Terminada en ".localized + String(describing: payment.card.lastFourDigits!)
         lastFourDigits.font = Utils.getFont(size: lastFourDigits.font.pointSize)
-        statement.text = ("En tu estado de cuenta verás el cargo como %0".localized as NSString).replacingOccurrences(of: "%0", with: "\(payment.statementDescriptor!)")
+        if let statementDescriptor = payment.statementDescriptor {
+            statement.text = ("En tu estado de cuenta verás el cargo como %0".localized as NSString).replacingOccurrences(of: "%0", with: "\(statementDescriptor)")
+        } else {
+            statement.text = ""
+        }
         statement.font = Utils.getFont(size: statement.font.pointSize)
         
     }

@@ -8,26 +8,13 @@
 
 import UIKit
 
-@objc
-open class MPCustomTableViewCell: UITableViewCell{
-
-    func fillCell(customCell: MPCustomTableViewCell){
-        customCell.fillContent()
-    }
-    
-    open func fillContent() {
-    
-    }
-    
-}
-
 import Foundation
 
 @objc open class MPCustomCells : NSObject {
-    open let cell: MPCustomTableViewCell
+    open let cell: UITableViewCell
     open let inflator: MPCustomInflator
     
-    public init (cell: MPCustomTableViewCell, inflator: MPCustomInflator){
+    public init (cell: UITableViewCell, inflator: MPCustomInflator){
         self.cell = cell
         self.inflator = inflator
     }

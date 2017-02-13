@@ -151,6 +151,7 @@
 "Debes autorizar ante %1$s el pago de " = "You must authorize with %1$s the payment of";
 " a MercadoPago" = " to MercadoPago";
 "Ya hablé con %1$s y me autorizó" = "Already talked with %0 and I am authorized";
+"En tu estado de cuenta verás el cargo como %0" = "In your account yo will see the charge as %0";
 
 
 "Total"="Total";
