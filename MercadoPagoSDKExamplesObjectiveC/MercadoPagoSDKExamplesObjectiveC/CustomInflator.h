@@ -14,4 +14,6 @@
 SWIFT_SUBCLASS
 @interface CustomInflator : NSObject<MPCustomInflator>
 
+
+
 @end

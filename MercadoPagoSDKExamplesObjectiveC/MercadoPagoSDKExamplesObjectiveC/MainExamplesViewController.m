@@ -62,6 +62,10 @@
     CustomTableViewCell *customCell = [[CustomTableViewCell alloc] init];
     
     CustomInflator *inflator = [[CustomInflator alloc] init];
+    inflator.callbackPaymentData =  ^(PaymentData *paymentData) {
+        NSLog(@"%@", paymentData.paymentMethod._id);
+        [self.navigationController popToRootViewControllerAnimated:NO];
+    };
   // [inflator setTitle:@"inflator overriden title"];
     
     MPCustomCells *customCellPair = [[MPCustomCells alloc] initWithCell:customCell inflator:inflator];

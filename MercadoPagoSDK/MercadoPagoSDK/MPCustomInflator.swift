@@ -10,11 +10,17 @@ import Foundation
 @objc
 public protocol MPCustomInflator : NSObjectProtocol {
     
-    func fillCell(cell: UITableViewCell, paymentData: PaymentData)
+    weak var delegate : CustomRowDelegate? { set get }
+    
+    var callbackPaymentData : (PaymentData) -> Void { set get }
+    
+    func fillCell(cell: UITableViewCell)
     
     func getNib() -> UINib
     
     func getHeigth() -> CGFloat
     
     var nib: UINib {get}
+    
 }
+
