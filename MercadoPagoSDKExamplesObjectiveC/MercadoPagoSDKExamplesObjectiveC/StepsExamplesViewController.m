@@ -139,17 +139,11 @@ int installmentsSelected = 1;
 
 - (void)startInstallmentsStep{
     
-<<<<<<< HEAD
 //     UIViewController *installmentVC =[MPStepBuilder startInstallmentsStep:nil paymentPreference:nil amount:ITEM_UNIT_PRICE issuer:selectedIssuer paymentMethodId:@"visa" callback:^(PayerCost * _Nullable payerCost) {
 //        [self.navigationController popViewControllerAnimated:YES];
 //    }];
 //     [self.navigationController pushViewController:installmentVC animated:YES];
-=======
-     /*UIViewController *installmentVC =[MPStepBuilder startInstallmentsStep:nil paymentPreference:nil amount:ITEM_UNIT_PRICE issuer:selectedIssuer paymentMethodId:@"visa" callback:^(PayerCost * _Nullable payerCost) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
-     [self.navigationController pushViewController:installmentVC animated:YES];*/
->>>>>>> addCallback
+
 }
 
 - (void)createPayment {
