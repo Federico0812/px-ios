@@ -270,13 +270,6 @@ open class CheckoutViewController: MercadoPagoUIScrollViewController, UITableVie
         }
         
         i = 0
-        if viewModel.hasCustomItemCells(){
-            for customCell in MercadoPagoCheckoutViewModel.confirmItemsCells! {
-                self.checkoutTable.register(customCell.inflator.getNib(), forCellReuseIdentifier: "confirmAdditionalItemCell"+String(i))
-                customerCell.inflator.delegate = self
-                i += 1
-            }
-        }
         
         self.checkoutTable.delegate = self
         self.checkoutTable.dataSource = self
@@ -312,15 +305,22 @@ open class CheckoutViewController: MercadoPagoUIScrollViewController, UITableVie
     }
     
     private func getCustomItemCell(indexPath: IndexPath) -> UITableViewCell{
-        let custom = self.checkoutTable.dequeueReusableCell(withIdentifier: "confirmAdditionalItemCell" + String(indexPath.row), for: indexPath)
-        
-        if viewModel.hasCustomItemCells(){
+//        var cell = self.checkoutTable.dequeueReusableCell(withIdentifier: "confirmAdditionalItemCell" + String(indexPath.row))
+        let customCell = MercadoPagoCheckoutViewModel.confirmItemsCells?[indexPath.row]
+        //if cell == nil  &&  viewModel.hasCustomItemCells() {
+//            self.checkoutTable.register(customCell!.inflator.getNib(), forCellReuseIdentifier: "confirmAdditionalItemCell"+String(indexPath.row))
+            let cell = customCell!.cell
+       // }
+        customCell?.inflator.delegate = self
+        return cell
+    
+        /*if viewModel.hasCustomItemCells(){
             let inflator = MercadoPagoCheckoutViewModel.confirmItemsCells![indexPath.row].inflator
             inflator.fillCell(cell: custom)
             return custom
         } else {
             return UITableViewCell()
-        }
+        }*/
     }
     
     

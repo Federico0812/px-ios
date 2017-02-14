@@ -72,9 +72,13 @@
     NSArray *customCells = [[NSArray alloc] initWithObjects:customCellPair, nil];
     [MercadoPagoCheckout addConfirmAdditionalCells:customCells];
     
+    CustomTableViewCell *customCellItems = [[[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil] firstObject];
     
-    MPCustomCells *customItemCellPair = [[MPCustomCells alloc] initWithCell:customCell inflator:inflator];
-    NSArray *customItemCells = [[NSArray alloc] initWithObjects: customItemCellPair, customItemCellPair, nil];
+    customCellItems.label.text = @"Item 1";
+    [customCellItems.button setTitle:@"Cambiar" forState:UIControlStateNormal];
+    
+    MPCustomCells *customItemCellPair = [[MPCustomCells alloc] initWithCell:customCellItems inflator:inflator];
+    NSArray *customItemCells = [[NSArray alloc] initWithObjects: customItemCellPair, nil];
     [MercadoPagoCheckout addConfirmItemCells:customItemCells];
     
 
